@@ -111,7 +111,7 @@ const handleAnswer = async(A) => {
   const fetchPhones = async () =>{
     try{
       // await sleep(5000)
-      await axios.post("phone/Phone/",apicall).then((response)=>{
+      await axios.post("https://leroydsilva.pythonanywhere.com/phone/Phone/",apicall).then((response)=>{
         const res = response.data
         setPhones(res);
       })
