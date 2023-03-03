@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
-import { BsChevronDown } from "react-icons/bs";
+// import { BsChevronDown } from "react-icons/bs";
 import { BiSearch } from "react-icons/bi";
-import { useEffect } from 'react';
 const Product = ({phones}) => {
   const [Search, setSearch] = useState("")
-  const [result, setresult] = useState([])
 
   const filteredData = phones.filter((el) => { //filterdata is function used for search
     //if no input the return the original

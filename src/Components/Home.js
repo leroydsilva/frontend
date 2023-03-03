@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, {useState } from 'react'
 import Quiz from './Quiz';
-import Button from 'react-bootstrap/Button';
 import Start from './Start';
 
 const Home = () => {
