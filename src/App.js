@@ -13,7 +13,7 @@ import Footer from './Components/Footer';
 
 
 function App() {
-  const [theme, settheme] = useState("dark")
+  const [theme, settheme] = useState("light")
   const changeTheme = () => {
     theme === "dark" ? settheme("light") : settheme("dark")
 
@@ -37,6 +37,7 @@ function App() {
         .choose-us-container,
         .products-container,
         .promo-container,
+        .container-box,
         footer,
         .title-container,
         container 

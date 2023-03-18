@@ -3,6 +3,8 @@ import Product from './Product';
 import axios from 'axios';
 import scrollreveal from "scrollreveal"
 import { LinearProgress } from '@material-ui/core';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
 
 const Quiz = () => {
   const [phones, setPhones] = useState([])
@@ -142,48 +144,55 @@ const handleAnswer = async(A) => {
   }, []);
 
 
+  useEffect(() => {
+    const registerAnimations = () => {
+      const sr = scrollreveal({
+        origin: "bottom",
+        distance: "80px",
+        duration: 1000,
+        reset: false,
+      });
+      sr.reveal(
+        `
+        .container-box,
+        .questions,
+        .options
+    `,
+        {
+          interval: 500,
+        }
+      );
+    };
+    registerAnimations();
+  }, []);
+
+
   return (
     <>
     { Loading ? <LinearProgress/> :
         
         over ? (<Product phones={phones}/>) :  (
-    // <div className='home'>
-    //      <div className='container mx-3 py-3'> 
-    //     <div className='title-container'>
-    //       {/* <span>{currentQuestion+1}</span><span>/</span><span>{Questionbank.length}</span> */}
-    //       <h4>{Questionbank[currentQuestion].Question}</h4>
-    //       </div>
-    //       <div className="categories">
-    //         {Questionbank[currentQuestion].AnswerText.map((Ans) =>{
-    //           return(
-    //             <div className="category" onClick={()=>{handleAnswer(Ans)}} key={Ans.Option}>
-    //                 <h4 className=''>{Ans.Option}</h4>
-    //             </div>
-    //           )
-    //         })}
-    //         </div>
-    //   </div>
-    // </div>
-
+  <Container className='container-box' maxWidth="sm">
+    <Box>
     <div className="services-container mx-3 py-3">
-    <div className="container">
-      <div className="service one">
-        <p>{currentQuestion+1} / {Questionbank.length}</p>
-        <h4>{Questionbank[currentQuestion].Question}</h4>
+    <div className="qno">
+        <h1>{currentQuestion+1} / {Questionbank.length}</h1>
+      </div>
+      <div className="question">
+      <h4>{Questionbank[currentQuestion].Question}</h4>
       </div>
       {Questionbank[currentQuestion].AnswerText.map((Ans) =>{
               return(
-      <div className="service two" onClick={()=>{handleAnswer(Ans)}} key={Ans.Option}>
+      <div className="options" onClick={()=>{handleAnswer(Ans)}} key={Ans.Option}>
         <div className="content">
           <h4>{Ans.Option}</h4>
-        </div>
-        <div className="image">
         </div>
       </div>
           )
                   })}
-      </div>
   </div>
+  </Box>
+  </Container>
 
 
     )

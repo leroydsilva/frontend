@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;500;600;700;800&display=swap");
+// @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;500;600;700;800&display=swap");
 
 :root {
   --blue-background: #caf0f8;
@@ -13,7 +13,7 @@
   --background: white;
   --card-color: rgb(241, 240, 240);
   --card-color2: white;
-  --svg-color: black;
+  --svg-color: white;
 }
 
 [data-theme="dark"] {
@@ -25,7 +25,7 @@
   --card-color: #12131d;
   --card-color2: #12131d;
   --red: #12131d;
-  --svg-color: #8eecf5;
+  --svg-color: black;
   --elevate-shadow: rgba(32, 29, 233, 0.637) 0px 25px 50px -12px;
 }
 
@@ -37,6 +37,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -74,6 +75,7 @@ ul {
 ::-webkit-scrollbar-thumb {
   background-color: #48cae4;
 }
+
 
 @media only screen and (min-device-width: 280px) and (max-device-width: 1080px) {
   html,
