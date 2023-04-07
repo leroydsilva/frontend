@@ -29,18 +29,11 @@ function App() {
       });
       sr.reveal(
         `
-        nav,
-        .home,
-        .services-container,
-        .categories-container,
-        .recommend-container,
         .choose-us-container,
         .products-container,
-        .promo-container,
-        .container-box,
         footer,
         .title-container,
-        container 
+        container
     `,
         {
           interval: 500,

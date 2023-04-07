@@ -113,7 +113,7 @@ const handleAnswer = async(A) => {
   const fetchPhones = async () =>{
     try{
       // await sleep(5000)
-      await axios.post("https://leroydsilva.pythonanywhere.com/phone/Phone/",apicall).then((response)=>{
+      await axios.post("http://3.108.53.240/phone/Phone/",apicall).then((response)=>{
         const res = response.data
         setPhones(res);
       })
@@ -122,27 +122,6 @@ const handleAnswer = async(A) => {
     }
   }
   
-  useEffect(() => {
-    const registerAnimations = () => {
-      const sr = scrollreveal({
-        origin: "bottom",
-        distance: "80px",
-        duration: 1000,
-        reset: false,
-      });
-      sr.reveal(
-        `
-        .title-container,
-        .container 
-    `,
-        {
-          interval: 500,
-        }
-      );
-    };
-    registerAnimations();
-  }, []);
-
 
   useEffect(() => {
     const registerAnimations = () => {

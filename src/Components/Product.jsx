@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
+import scrollreveal from "scrollreveal"
 // import { BsChevronDown } from "react-icons/bs";
 import { BiSearch } from "react-icons/bi";
 const Product = ({phones}) => {
@@ -20,6 +21,25 @@ const Product = ({phones}) => {
   //   setresult(filtered)
   // }, [Search])
   
+  useEffect(() => {
+    const registerAnimations = () => {
+      const sr = scrollreveal({
+        origin: "bottom",
+        distance: "80px",
+        duration: 1000,
+        reset: false,
+      });
+      sr.reveal(
+        `
+        .products
+    `,
+        {
+          interval: 500,
+        }
+      );
+    };
+    registerAnimations();
+  }, []);
 
   return (
     <div className="products-container mx-3 py-3">
