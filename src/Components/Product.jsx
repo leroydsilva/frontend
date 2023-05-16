@@ -2,6 +2,7 @@ import React, { useState,useEffect } from 'react'
 import scrollreveal from "scrollreveal"
 // import { BsChevronDown } from "react-icons/bs";
 import { BiSearch } from "react-icons/bi";
+import List from './List';
 const Product = ({phones}) => {
   const [Search, setSearch] = useState("")
 
@@ -57,31 +58,49 @@ const Product = ({phones}) => {
         <div className="products">
           {
           filteredData.length > 0 ? (
-            filteredData?.map(({ Phone_name, Phone_price, Phone_img }, index) => {
+            filteredData?.map(({ Phone_name, Phone_price, Phone_img,Screen_size,RAM,Internal_storage,
+            Processor,Front_camera,Rear_camera,Rating,fiveg,Battery }, index) => {
              return( 
-              <div className="product" key={index}>  
-              <div className="image">
-                <img src={Phone_img} alt="Product" />
-                </div>
-                <h4>{Phone_name}</h4>
-                <h4>₹ {Phone_price}</h4>
-                <hr />
-                  {/* <div className="processor">
-                  <img src={processorimage} alt="processor" />
-                  <h4>Processor</h4>
-                  <p>{processor}</p>
-                </div> */}
-                {/* <div className="os">
-                  <img src={osimage} alt="os" />
-                  <h4>Operating System</h4>
-                  <p>{os}</p>
-                </div> */}
-                {/* <BsChevronDown /> */}
-              </div>
+                // <div className="product-container" key={index}> 
+                <>
+                <List  
+                key={index}
+                image={Phone_img} 
+                price={Phone_price} 
+                name={Phone_name} 
+                screen = {Screen_size}
+                ram= {RAM}
+                storage = {Internal_storage}
+                processor = {Processor}
+                fcam ={Front_camera}
+                rcam = {Rear_camera}
+                rating ={Rating}
+                fiveg ={fiveg}
+                Battery= {Battery}
+                 />
+                
+                {/* <Demo image={Phone_img} price={Phone_price} name={Phone_name} index1={index}/>  */}
+                </>
+
+
+              // <div className="product-container" key={index}>  
+              // <div className="image">
+              //   <img src={Phone_img} alt="Product" />
+              //   </div>
+              //   <div className='phone-details'> 
+              //     <h4>{Phone_name}</h4>
+              //     <h4>₹ {Phone_price}</h4>
+              //   </div>
+              // </div>
              )
             }
             )) :(
+              <>
               <h2>No Result</h2>
+              <div>
+              
+              </div>
+              </>
             )
           }
         </div>

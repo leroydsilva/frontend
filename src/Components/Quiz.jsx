@@ -113,7 +113,8 @@ const handleAnswer = async(A) => {
   const fetchPhones = async () =>{
     try{
       // await sleep(5000)
-      await axios.post("http://3.108.53.240/phone/Phone/",apicall).then((response)=>{
+      // await axios.post("http://3.108.53.240/phone/Phone/",apicall).then((response)=>{ for prod
+      await axios.post("https://phonemate-backend.sbs/phone/Phone",apicall).then((response)=>{
         const res = response.data
         setPhones(res);
       })

@@ -1,0 +1,141 @@
+$green: #2ecc71;
+$light-green: #b2d8b2;
+$yellow: #f1c40f;
+$dark-green :#024e22;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Lao:wght@300;400;500&display=swap');
+.phone-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    
+    .phone-rating {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+    }
+    
+    .phone-rating::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      box-sizing: border-box;
+      border: 5px solid transparent;
+    }
+    
+    .phone-rating .rating-number {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .phone-rating--10::before {
+      border-color: $dark-green;
+      color: $green;
+    }
+    
+    .phone-rating--9::before {
+      border-color: $green;
+      color: $light-green;
+      border-top-color: transparent;
+      transform: rotate(-20deg);
+    }
+    
+    .phone-rating--8::before {
+      border-color: $light-green;
+      color: $yellow;
+      border-top-color: transparent;
+      border-right-color: transparent;
+      transform: rotate(72deg);
+    }
+    
+    .phone-rating--6::before {
+      border-color: red;
+      color: red;
+      border-top-color: transparent;
+      border-right-color: transparent;
+      border-bottom-color: transparent;
+      transform: rotate(108deg);
+    }
+    
+    .phone {
+      display: flex;
+      flex-direction: column;
+      font-family: 'Noto Serif Lao', serif;
+    //   margin: 20px;
+      // padding: 10px;
+      min-width: 200px;
+      max-width: 600px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+      margin: 10px; 
+    .image-container{
+      position: relative;
+      overflow: hidden;
+      min-width: 200px;
+      margin-right: 20px;
+      margin-bottom: 9px;
+      max-width: 300px;
+      padding-top: 4px;
+        .phone-image{
+          max-width: 100%;
+          height: auto;
+          border-radius: 10px;
+          }
+
+    }
+    
+    .phone-details {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      flex-grow: 1;
+      min-width: 200px;
+      align-items: center;
+    
+      .phone-title {
+        font-size: 24px;
+        font-weight: 500;
+        margin-bottom: 10px;
+      }
+    
+      .phone-price {
+        font-size: 18px;
+        font-weight: 500;
+        color: #007aff;
+        margin-bottom: 20px;
+      }
+    
+      .phone-specs {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 16px;
+        color: #444;
+        margin-bottom: 10px;
+        width: 100%;
+    
+        .icon {
+          margin-right: 10px;
+          font-size: 20px;
+          align-items: baseline;
+          width: 20%;
+          text-align: center;
+        }
+        .data {
+          width: 80%;
+          text-align: left;
+        }
+      }
+    }
+    
+      
+    }
+  }
+  
