@@ -2,6 +2,8 @@ $green: #2ecc71;
 $light-green: #b2d8b2;
 $yellow: #f1c40f;
 $dark-green :#024e22;
+$orange : orange;
+$low-green:rgb(135, 227, 7);
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Lao:wght@300;400;500&display=swap');
 .phone-container {
     display: grid;
@@ -36,32 +38,39 @@ $dark-green :#024e22;
     
     .phone-rating--10::before {
       border-color: $dark-green;
-      color: $green;
     }
     
     .phone-rating--9::before {
       border-color: $green;
-      color: $light-green;
       border-top-color: transparent;
-      transform: rotate(-20deg);
+      transform: rotate(-36deg);
     }
     
     .phone-rating--8::before {
+      border-color: $low-green;
+      border-top-color: transparent;
+      // border-right-color: transparent;
+      // border-bottom-color: transparent;
+      transform: rotate(-72deg);
+    }
+    
+    .phone-rating--7::before {
       border-color: $light-green;
-      color: $yellow;
       border-top-color: transparent;
       border-right-color: transparent;
-      transform: rotate(72deg);
+      // border-bottom-color: transparent;
+      transform: rotate(-90deg);
     }
     
     .phone-rating--6::before {
-      border-color: red;
-      color: red;
+      border-color: $orange;
       border-top-color: transparent;
       border-right-color: transparent;
       border-bottom-color: transparent;
-      transform: rotate(108deg);
+      transform: rotate(216deg);
     }
+    
+    
     
     .phone {
       display: flex;

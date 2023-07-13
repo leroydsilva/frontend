@@ -1,21 +1,36 @@
 import React, { useState,useEffect } from 'react'
+import { BiSortDown, BiSortUp } from "react-icons/bi";
 import scrollreveal from "scrollreveal"
 // import { BsChevronDown } from "react-icons/bs";
 import { BiSearch } from "react-icons/bi";
 import List from './List';
 const Product = ({phones}) => {
   const [Search, setSearch] = useState("")
+  const [phoneslisted, setphoneslisted] = useState(phones)
 
-  const filteredData = phones.filter((el) => { //filterdata is function used for search
-    //if no input the return the original
-    if (Search === '') {
-        return el
+  useEffect(() => {
+    const filteredData = phones.filter((el) => {
+      if (Search === "") {
+        return true; // Return true for all items if no search input
+      } else {
+        return el.Phone_name.toLowerCase().includes(Search);
+      }
+    });
+
+    setphoneslisted(filteredData);
+  }, [Search, phones]); // Update phoneslisted whenever Search or phones changes
+
+  const sortbyParams = (params) =>{
+    let sortedData;
+
+    if (params === 'Rating') {
+      sortedData = [...phoneslisted].sort((a, b) => b[params] - a[params]); // Sort by Rating (high to low)
+    } else if (params === 'Phone_price') {
+      sortedData = [...phoneslisted].sort((a, b) => a[params] - b[params]); // Sort by Phone_price (low to high)
     }
-    //return the item which contains the user input
-    else  {
-        return(el.Phone_name.toLowerCase().includes(Search))
-    }
-})
+    setphoneslisted(sortedData)
+  }
+  
 
   // useEffect(() => {
   //   const filtered = phones.filter(p => p.Phone_name.toLowerCase().includes(Search))
@@ -55,10 +70,15 @@ const Product = ({phones}) => {
               </div>
             <input  type="text" placeholder="I want to buy..." value={Search} onChange={(e)=>{setSearch(e.target.value.toLowerCase())}} />
           </div>
+          <div className='button-class'>
+            <button className='button-price' onClick={() => sortbyParams('Phone_price')}>Sort by Price <BiSortDown /></button>
+            <button className='button-rating' onClick={() => sortbyParams('Rating')}>Sort by Rating <BiSortUp /></button> 
+          </div>
         <div className="products">
           {
-          filteredData.length > 0 ? (
-            filteredData?.map(({ Phone_name, Phone_price, Phone_img,Screen_size,RAM,Internal_storage,
+          phoneslisted.length > 0 ? (
+            phoneslisted
+            ?.map(({ Phone_name, Phone_price, Phone_img,Screen_size,RAM,Internal_storage,
             Processor,Front_camera,Rear_camera,Rating,fiveg,Battery }, index) => {
              return( 
                 // <div className="product-container" key={index}> 
@@ -78,20 +98,7 @@ const Product = ({phones}) => {
                 fiveg ={fiveg}
                 Battery= {Battery}
                  />
-                
-                {/* <Demo image={Phone_img} price={Phone_price} name={Phone_name} index1={index}/>  */}
                 </>
-
-
-              // <div className="product-container" key={index}>  
-              // <div className="image">
-              //   <img src={Phone_img} alt="Product" />
-              //   </div>
-              //   <div className='phone-details'> 
-              //     <h4>{Phone_name}</h4>
-              //     <h4>₹ {Phone_price}</h4>
-              //   </div>
-              // </div>
              )
             }
             )) :(
